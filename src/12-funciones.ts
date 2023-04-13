@@ -1,0 +1,42 @@
+(() => {
+  type Sizes = 'S' | 'M' | 'L' | 'XL';
+  function createProductToJson(
+    title: string,
+    createdAt: Date,
+    stock: number,
+    size: Sizes
+  ) {
+    return {
+      title,
+      createdAt,
+      stock,
+      size
+    }
+  }
+  const producto1 = createProductToJson("P1",new Date(),12,"XL");
+  console.log(producto1);
+  console.log(producto1.title);
+  console.log(producto1.stock);
+
+
+const createProductToJsonV2=(
+    title: string,
+    createdAt: Date,
+    stock: number,
+    size?: Sizes   //con el signo de pregunta le decimos que este parametro es opcional y si no lo mando no me rompe el codigo.
+  ) => {
+    return {
+      title,
+      createdAt,
+      stock,
+      size
+    }
+  }
+  const producto2 = createProductToJsonV2("P2",new Date(),15); // como se ve aca no estoy mandando el size y no me tira error.
+  console.log(producto2);
+  console.log(producto2.title);
+  console.log(producto2.stock);
+
+
+
+})();
